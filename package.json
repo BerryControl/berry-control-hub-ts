@@ -1,0 +1,16 @@
+{
+  "name": "berry-control-hub",
+  "version": "0.1.0",
+  "description": "Service for the BerryControl hub.",
+  "main": "dist/server/main.js",
+  "scripts": {
+    "prepare": "cd transport-model && npm i && npm run build",
+    "clean": "rm -f .npmignore && rm -rf `find . -name 'node_modules'` && rm -rf `find . -name 'dist'`"
+  },
+  "author": "Thomas Bonk",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/BerryControl/berry-control-hub.git"
+  }
+}

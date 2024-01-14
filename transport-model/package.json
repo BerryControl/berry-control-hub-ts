@@ -1,0 +1,12 @@
+{
+  "name": "transport-model",
+  "version": "0.1.0",
+  "description": "The transport defines the interface between the web UI and ther server.",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc"
+  },
+  "devDependencies": {
+    "typescript": "^5.3.3"
+  }
+}
