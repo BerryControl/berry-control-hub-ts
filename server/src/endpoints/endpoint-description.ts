@@ -14,25 +14,16 @@
    limitations under the License.
  */
 
-import { AbstractEndpoint, HttpMethod } from './abstract-endpoint'
+import { NextFunction, Request, Response } from 'express'
 
-export interface DeviceInfo {
-    name: string
-    deviceId: string
-    requiresPairing: boolean
-}
+export class EndpointDescription {
+    public method: string
+    public path: string
+    public handler: (req: Request, res: Response, next: NextFunction) => any
 
-export interface ReadDeviceInfosResponse {
-    result: Array<DeviceInfo>
-}
-
-export class ReadDeviceInfosEndpoint extends AbstractEndpoint {
-    public constructor() {
-        super({
-            method: HttpMethod.GET,
-            uri: '/device_infos/:pluginId'
-        })
+    public constructor(method: string, path: string, handler: (req: Request, res: Response, next: NextFunction) => any) {
+        this.method = method
+        this.path = path
+        this.handler = handler
     }
 }
-
-export const readDeviceInfosEndpoint = new ReadDeviceInfosEndpoint()

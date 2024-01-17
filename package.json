@@ -2,11 +2,17 @@
   "name": "berry-control-hub",
   "version": "0.1.0",
   "description": "Service for the BerryControl hub.",
-  "main": "dist/server/main.js",
+  "main": "server/dist/main.js",
   "scripts": {
-    "prepare": "cd transport-model && npm i && npm run build",
-    "clean": "rm -f .npmignore && rm -rf `find . -name 'node_modules'` && rm -rf `find . -name 'dist'`"
+    "build": "cd transport-model && npm run build && cd ../server && npm run build && cd ../ui && npm run build",
+    "prepare": "cd transport-model && npm i && cd ../server && npm i && cd ../ui && npm i",
+    "clean": "rm -f .npmignore && rm -rf `find . -name 'node_modules'` && rm -rf `find . -name 'dist'` && rm -rf `find . -name 'build'`"
   },
+  "keywords": [
+    "remote",
+    "control",
+    "hub"
+  ],
   "author": "Thomas Bonk",
   "license": "Apache-2.0",
   "repository": {

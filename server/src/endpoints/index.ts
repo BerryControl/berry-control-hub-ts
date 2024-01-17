@@ -14,25 +14,4 @@
    limitations under the License.
  */
 
-import { AbstractEndpoint, HttpMethod } from './abstract-endpoint'
-
-export interface DeviceInfo {
-    name: string
-    deviceId: string
-    requiresPairing: boolean
-}
-
-export interface ReadDeviceInfosResponse {
-    result: Array<DeviceInfo>
-}
-
-export class ReadDeviceInfosEndpoint extends AbstractEndpoint {
-    public constructor() {
-        super({
-            method: HttpMethod.GET,
-            uri: '/device_infos/:pluginId'
-        })
-    }
-}
-
-export const readDeviceInfosEndpoint = new ReadDeviceInfosEndpoint()
+export * from './read-device-driver-descriptors-handler'

@@ -14,5 +14,6 @@
    limitations under the License.
  */
 
+export * from './abstract-endpoint'
 export * from './read-device-driver-descriptors'
 export * from './read-device-infos'

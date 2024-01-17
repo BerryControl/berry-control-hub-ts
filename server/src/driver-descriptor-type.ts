@@ -14,25 +14,6 @@
    limitations under the License.
  */
 
-import { AbstractEndpoint, HttpMethod } from './abstract-endpoint'
+import { DeviceDriverDescriptor, DeviceCommand, DeviceDriver, DeviceInfo } from 'berry-driver-plugins-api'
 
-export interface DeviceInfo {
-    name: string
-    deviceId: string
-    requiresPairing: boolean
-}
-
-export interface ReadDeviceInfosResponse {
-    result: Array<DeviceInfo>
-}
-
-export class ReadDeviceInfosEndpoint extends AbstractEndpoint {
-    public constructor() {
-        super({
-            method: HttpMethod.GET,
-            uri: '/device_infos/:pluginId'
-        })
-    }
-}
-
-export const readDeviceInfosEndpoint = new ReadDeviceInfosEndpoint()
+export type DriverDescriptorType = DeviceDriverDescriptor<DeviceCommand, DeviceDriver<DeviceCommand>, DeviceInfo>

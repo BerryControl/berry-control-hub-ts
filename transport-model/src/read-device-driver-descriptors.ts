@@ -14,6 +14,8 @@
    limitations under the License.
  */
 
+import { AbstractEndpoint, HttpMethod } from './abstract-endpoint'
+
 export interface DeviceDriverDescriptor {
     pluginId: string
     displayName: string
@@ -25,3 +27,14 @@ export interface DeviceDriverDescriptor {
 export interface ReadDeviceDriverDescriptorsResponse {
     result: Array<DeviceDriverDescriptor>
 }
+
+export class ReadDeviceDriverDescriptorsEndpoint extends AbstractEndpoint {
+    public constructor() {
+        super({
+            method: HttpMethod.GET,
+            uri: '/device_driver_descriptors',
+        })
+    }
+}
+
+export const readDeviceDriverDescriptorsEndpoint = new ReadDeviceDriverDescriptorsEndpoint()
